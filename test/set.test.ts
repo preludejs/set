@@ -1,4 +1,5 @@
 import * as S from '../index.js'
+import * as Cmp from '@prelude/cmp'
 
 const s =
   <T>(...args: T[]): Set<T> =>
@@ -34,4 +35,17 @@ test('difference', () => {
   expect(S.equal(s('a'), S.difference(a, b))).toBe(true)
   expect(S.equal(s('c'), S.difference(b, a))).toBe(true)
   expect(S.equal(a, S.difference(a, c))).toBe(true)
+})
+
+test('range', () => {
+  expect(S.sorted(S.range(3), Cmp.numbers)).toEqual([ 0, 1, 2 ])
+  expect(S.sorted(S.range(2, 5), Cmp.numbers)).toEqual([ 2, 3, 4 ])
+  expect(S.sorted(S.range(1, 10, 2), Cmp.numbers)).toEqual([ 1, 3, 5, 7, 9 ])
+})
+
+test('range1', () => {
+  expect(S.sorted(S.range1(-5, -10), Cmp.numbers)).toEqual([ -10, -9, -8, -7, -6, -5 ])
+  expect(S.sorted(S.range1(3), Cmp.numbers)).toEqual([ 1, 2, 3 ])
+  expect(S.sorted(S.range1(2, 5), Cmp.numbers)).toEqual([ 2, 3, 4, 5 ])
+  expect(S.sorted(S.range1(1, 10, 2), Cmp.numbers)).toEqual([ 1, 3, 5, 7, 9 ])
 })
