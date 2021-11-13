@@ -1,4 +1,4 @@
-import * as S from '../index.js'
+import * as S from '../cjs/index.js'
 import * as Cmp from '@prelude/cmp'
 
 const s =
