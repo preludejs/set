@@ -1,7 +1,7 @@
-import Arrays from '@prelude/array'
+import * as A from '@prelude/array'
 
 const shuffled =
   <T>(set: Set<T>): T[] =>
-    Arrays.shuffle(Array.from(set))
+    A.shuffle(Array.from(set))
 
 export default shuffled
