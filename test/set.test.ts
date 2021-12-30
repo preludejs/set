@@ -49,3 +49,14 @@ test('range1', () => {
   expect(S.sorted(S.range1(2, 5), Cmp.numbers)).toEqual([ 2, 3, 4, 5 ])
   expect(S.sorted(S.range1(1, 10, 2), Cmp.numbers)).toEqual([ 1, 3, 5, 7, 9 ])
 })
+
+test('disjoint', () => {
+  expect(S.disjoint(
+    S.of([ 3, 4, 5 ]),
+    S.of([ 4 ])
+  )).toBe(false)
+  expect(S.disjoint(
+    S.of([ 3, 4, 5 ]),
+    S.of([ 6, 0 ])
+  )).toBe(true)
+})
